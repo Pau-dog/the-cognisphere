@@ -9,6 +9,7 @@ import Culture from './pages/Culture'
 import Economy from './pages/Economy'
 import Network from './pages/Network'
 import Settings from './pages/Settings'
+import About from './pages/About'
 import { SimulationProvider } from './state/SimulationContext'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="economy" element={<Economy />} />
             <Route path="network" element={<Network />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="about" element={<About />} />
           </Route>
         </Routes>
         <Toaster 

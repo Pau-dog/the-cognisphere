@@ -13,7 +13,8 @@ import {
   Globe,
   Menu,
   X,
-  Activity
+  Activity,
+  Info
 } from 'lucide-react'
 import { useSimulation } from '../state/SimulationContext'
 import Sidebar from './Sidebar'
@@ -31,6 +32,7 @@ const Layout: React.FC = () => {
     { name: 'Culture', href: '/culture', icon: Globe },
     { name: 'Economy', href: '/economy', icon: BarChart3 },
     { name: 'Network', href: '/network', icon: Network },
+    { name: 'About', href: '/about', icon: Info },
     { name: 'Settings', href: '/settings', icon: Settings },
   ]
 
