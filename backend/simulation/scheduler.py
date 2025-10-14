@@ -374,16 +374,16 @@ class SimulationScheduler:
         try:
             similarity = 1 - cosine(p1, p2)
             return max(-1.0, min(1.0, similarity))
-        except:
+        except Exception:
             return 0.0
     
     async def _update_economy(self, tick: int):
         """Update economic systems."""
         # Produce and distribute resources
-        production = self.world.economy.produce_resources(tick)
-        distribution = self.world.economy.distribute_resources(
-            list(self.world.agents.values()), production
-        )
+        # production = self.world.economy.produce_resources(tick)
+        # distribution = self.world.economy.distribute_resources(
+        #     list(self.world.agents.values()), production
+        # )
         
         # Update market
         self.world.economy.update_market(tick, list(self.world.agents.values()))

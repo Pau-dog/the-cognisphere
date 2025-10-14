@@ -5,8 +5,7 @@ Tests for economy and trade systems.
 import pytest
 
 from simulation.economy import (
-    Economy, Market, Resource, Trade, TradeStatus,
-    Market
+    Economy, Market, Resource, Trade, TradeStatus
 )
 from simulation.agents import Agent, AgentPersonality
 

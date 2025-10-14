@@ -13,13 +13,17 @@ from typing import Dict, List, Optional, Any, Callable
 from dataclasses import dataclass
 from enum import Enum
 
-# Add parent directory to path for cross-module imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from .world import World, WorldState
 from .scheduler import SimulationScheduler, SchedulerConfig
-from adapters import LLMAdapter, LLMAdapterFactory, LLMConfig, LLMMode
 from .environmental_stimuli import EnvironmentalStimuliManager, create_default_stimuli_manager
+
+# Import adapters with fallback
+try:
+    from adapters import LLMAdapter, LLMAdapterFactory, LLMConfig, LLMMode
+except ImportError:
+    # Add parent directory to path for cross-module imports
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from adapters import LLMAdapter, LLMAdapterFactory, LLMConfig, LLMMode
 
 
 class SimulationState(Enum):

@@ -316,7 +316,7 @@ class World:
         try:
             similarity = 1 - cosine(agent1.ideology, agent2.ideology)
             return max(0.0, similarity)  # Ensure non-negative
-        except:
+        except Exception:
             return 0.0
     
     def update_statistics(self):

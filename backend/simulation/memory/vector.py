@@ -22,7 +22,7 @@ except ImportError:
 
 try:
     import chromadb
-    from chromadb.config import Settings
+    # from chromadb.config import Settings  # Unused import
     CHROMA_AVAILABLE = True
 except ImportError:
     CHROMA_AVAILABLE = False
@@ -238,7 +238,7 @@ class ChromaVectorStore:
         # Get or create collection
         try:
             self.collection = self.client.get_collection(name=collection_name)
-        except:
+        except Exception:
             self.collection = self.client.create_collection(
                 name=collection_name,
                 metadata={"description": "Cognisphere memory embeddings"}
@@ -318,7 +318,7 @@ class ChromaVectorStore:
         try:
             self.collection.delete(ids=[memory_id])
             return True
-        except:
+        except Exception:
             return False
     
     def get_memory(self, memory_id: str) -> Optional[VectorMemory]:
@@ -342,7 +342,7 @@ class ChromaVectorStore:
                     metadata={k: v for k, v in metadata.items() 
                              if k not in ["memory_type", "importance", "created_at", "access_count"]}
                 )
-        except:
+        except Exception:
             pass
         return None
     
@@ -363,7 +363,7 @@ class ChromaVectorStore:
             self.remove_memory(memory_id)
             self.add_memory(memory)
             return True
-        except:
+        except Exception:
             return False
     
     def get_stats(self) -> Dict[str, Any]:
@@ -375,7 +375,7 @@ class ChromaVectorStore:
                 "collection_name": self.collection_name,
                 "persist_directory": self.persist_directory
             }
-        except:
+        except Exception:
             return {"total_memories": 0}
 
 

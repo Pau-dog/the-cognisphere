@@ -224,7 +224,7 @@ class TestAgent:
         
         # Check that vote was recorded
         assert norm.id in agent.voted_norms
-        assert agent.voted_norms[norm.id] == True
+        assert agent.voted_norms[norm.id] is True
     
     def test_agent_reflection(self, agent):
         """Test agent reflection and memory consolidation."""
@@ -238,7 +238,7 @@ class TestAgent:
             "importance": 0.7
         })
         
-        initial_satisfaction = agent.satisfaction
+        # initial_satisfaction = agent.satisfaction
         
         # Perform reflection
         agent.reflect(tick=20)

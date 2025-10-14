@@ -193,7 +193,7 @@ class Language:
         # Calculate Jensen-Shannon divergence
         try:
             return jensenshannon(p1, p2)
-        except:
+        except Exception:
             return 0.0
 
 

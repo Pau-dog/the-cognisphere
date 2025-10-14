@@ -288,7 +288,7 @@ class MemoryGraph:
             # Use betweenness centrality
             centrality = nx.betweenness_centrality(self.graph)
             return centrality.get(node_id, 0.0)
-        except:
+        except Exception:
             return 0.0
     
     def consolidate_memories(self, time_delta: timedelta) -> None:
