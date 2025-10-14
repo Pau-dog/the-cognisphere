@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "", // Root path for GitHub Pages
+  base: "/the-cognisphere/", // Project site path for GitHub Pages
   server: {
     host: true,
     port: 5173,
