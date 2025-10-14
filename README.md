@@ -1,4 +1,4 @@
-# 🧠 The Cognisphere: Emergent Intelligence Civilization Engine
+# The Cognisphere: Emergent Intelligence Civilization Engine
 
 [![CI](https://github.com/zaydbashir/the-cognisphere/actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
 [![Release](https://github.com/zaydbashir/the-cognisphere/actions/workflows/release.yml/badge.svg)](../../actions/workflows/release.yml)
@@ -8,7 +8,7 @@
 
 A living ecosystem of cognitive agents that evolve language, culture, alliances, and institutions through emergent dynamics.
 
-## 🌍 Overview
+## Overview
 
 The Cognisphere simulates a digital civilization with hundreds to thousands of lightweight cognitive agents who:
 - Evolve language, culture, alliances, norms, and mythology
@@ -17,17 +17,17 @@ The Cognisphere simulates a digital civilization with hundreds to thousands of l
 - React to real-world environmental stimuli
 - Produce emergent structure without hard-coded scripts
 
-## 🏗️ Architecture
+## Architecture
 
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Frontend      │    │   Backend       │    │   Memory        │
-│   React + Vite  │◄──►│   FastAPI       │◄──►│   Neo4j + FAISS │
-│   Visualization │    │   Simulation    │    │   Graph + Vector│
-└─────────────────┘    └─────────────────┘    └─────────────────┘
+        
+   Frontend             Backend              Memory        
+   React + Vite     FastAPI          Neo4j + FAISS 
+   Visualization        Simulation           Graph + Vector
+        
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Interactive Setup (Recommended)
 ```bash
@@ -63,14 +63,14 @@ docker-compose -f docker/docker-compose.yml up --build -d
 python scripts/seed_and_run.py --preset lab --ticks 300 --seed 42
 ```
 
-## 🌐 Access URLs (No Localhost Issues!)
+## Access URLs (No Localhost Issues!)
 
 - **Frontend Dashboard**: `http://cognisphere.local:5173` or `https://cognisphere.local`
 - **API Documentation**: `http://cognisphere.local:8000/api/docs`
 - **Neo4j Browser**: `http://cognisphere.local:7474`
 - **Monitoring**: `http://cognisphere.local:3001` (Grafana)
 
-## 🧠 Core Features
+## Core Features
 
 ### Agent Cognitive Architecture
 - Personality vectors (OCEAN-style)
@@ -99,7 +99,7 @@ python scripts/seed_and_run.py --preset lab --ticks 300 --seed 42
 - Snapshot/rewind capability for time travel
 - Deterministic seeded runs for reproducibility
 
-## 📊 Dashboard Features
+## Dashboard Features
 
 - Real-time agent network visualization
 - Culture timeline with myths, slang, and norms
@@ -108,7 +108,7 @@ python scripts/seed_and_run.py --preset lab --ticks 300 --seed 42
 - Simulation control with play/pause/seed
 - Snapshot playback capabilities
 
-## 🧪 Testing & Benchmarks
+## Testing & Benchmarks
 
 ```bash
 # Run test suite
@@ -121,7 +121,7 @@ python scripts/seed_and_run.py --preset lab --ticks 300
 python scripts/seed_and_run.py --seed 42 --ticks 100
 ```
 
-## 🔧 Configuration
+## Configuration
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -132,29 +132,29 @@ python scripts/seed_and_run.py --seed 42 --ticks 100
 | `MEM_BACKEND` | neo4j | Memory backend: neo4j or networkx |
 | `VEC_BACKEND` | faiss | Vector backend: faiss or chroma |
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 cognisphere/
-├── backend/           # FastAPI simulation engine
-├── frontend/          # React dashboard
-├── docker/            # Containerization
-├── scripts/           # Utilities and seeding
-├── data/              # Sample stimuli and configs
-└── README.md          # This file
+ backend/           # FastAPI simulation engine
+ frontend/          # React dashboard
+ docker/            # Containerization
+ scripts/           # Utilities and seeding
+ data/              # Sample stimuli and configs
+ README.md          # This file
 ```
 
-## 🎯 Acceptance Criteria
+## Acceptance Criteria
 
-- ✅ One-command startup with Docker Compose
-- ✅ Working dashboard with emergent myths, slang, alliances
-- ✅ Deterministic seeded runs
-- ✅ 500+ agent mock runs on laptop
-- ✅ Beautiful, clean architecture & documentation
+- One-command startup with Docker Compose
+- Working dashboard with emergent myths, slang, alliances
+- Deterministic seeded runs
+- 500+ agent mock runs on laptop
+- Beautiful, clean architecture & documentation
 
-## 🚀 Deployment
+## Deployment
 
-### 🌐 Live Deployment
+### Live Deployment
 
 **Frontend (GitHub Pages)**: [https://zaydbashir.github.io/the-cognisphere](https://zaydbashir.github.io/the-cognisphere)
 
@@ -162,7 +162,7 @@ cognisphere/
 
 **API Documentation**: [https://cognisphere-backend.onrender.com/docs](https://cognisphere-backend.onrender.com/docs)
 
-### 🐳 Docker Images
+### Docker Images
 
 ```bash
 # Pull latest images
@@ -173,7 +173,7 @@ docker pull ghcr.io/zaydbashir/cognisphere-frontend:latest
 docker-compose up -d
 ```
 
-### 🔧 Environment Configuration
+### Environment Configuration
 
 Copy the example environment files and configure:
 
@@ -185,20 +185,20 @@ cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env.local
 ```
 
-### 📦 Release Process
+### Release Process
 
 1. **Tag a release**: `git tag v0.1.0 && git push origin v0.1.0`
 2. **Automatic builds**: Docker images pushed to GHCR
 3. **Auto-deploy**: Frontend to GitHub Pages, Backend to Render
 4. **Health checks**: Automated deployment verification
 
-### 🛠️ CI/CD Pipeline
+### CI/CD Pipeline
 
 - **Continuous Integration**: Lint, type-check, tests on every push
 - **Release Automation**: Build and push Docker images on tags
 - **Auto-Deployment**: Frontend (GitHub Pages) + Backend (Render)
 - **Health Monitoring**: Automated deployment verification
 
-## 📄 License
+## License
 
 MIT License - See LICENSE file for details.

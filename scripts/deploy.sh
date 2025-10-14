@@ -33,7 +33,7 @@ DOMAIN=${COGNISPHERE_DOMAIN:-"cognisphere.local"}
 PORT=${COGNISPHERE_PORT:-"8080"}
 ENVIRONMENT=${ENVIRONMENT:-"production"}
 
-print_status "🚀 Deploying The Cognisphere in $ENVIRONMENT mode..."
+print_status " Deploying The Cognisphere in $ENVIRONMENT mode..."
 
 # Check prerequisites
 check_prerequisites() {
@@ -201,23 +201,23 @@ initialize_simulation() {
 
 # Display access information
 show_access_info() {
-    print_success "🎉 The Cognisphere is now running!"
+    print_success " The Cognisphere is now running!"
     echo ""
-    echo "🌐 Access URLs:"
+    echo " Access URLs:"
     echo "   Frontend: https://$DOMAIN"
     echo "   API Docs: https://$DOMAIN/api/docs"
     echo "   Health Check: https://$DOMAIN/api/health"
     echo ""
-    echo "🔧 Management:"
+    echo " Management:"
     echo "   View logs: docker-compose -f docker/docker-compose.yml logs -f"
     echo "   Stop: docker-compose -f docker/docker-compose.yml down"
     echo "   Restart: docker-compose -f docker/docker-compose.yml restart"
     echo ""
-    echo "📊 Monitoring:"
+    echo " Monitoring:"
     echo "   Neo4j Browser: https://$DOMAIN:7474 (neo4j/cognisphere_secure_password_*)"
     echo "   Redis CLI: docker exec -it cognisphere_redis_1 redis-cli"
     echo ""
-    echo "⚠️  Note: You may need to accept the self-signed SSL certificate"
+    echo "  Note: You may need to accept the self-signed SSL certificate"
     echo "   in your browser for the first visit."
     echo ""
 }

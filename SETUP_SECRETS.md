@@ -1,20 +1,20 @@
-# 🔐 GitHub Secrets Setup Guide
+# GitHub Secrets Setup Guide
 
 This guide explains how to set up the required secrets for The Cognisphere's CI/CD pipeline.
 
-## 📍 Where to Set Secrets
+## Where to Set Secrets
 
 1. Go to your GitHub repository
-2. Click **Settings** → **Secrets and variables** → **Actions**
+2. Click **Settings**  **Secrets and variables**  **Actions**
 3. Click **New repository secret**
 
-## 🔑 Required Secrets
+## Required Secrets
 
 ### Render.com Backend Deployment
 
 | Secret Name | Description | How to Get |
 |-------------|-------------|------------|
-| `RENDER_API_KEY` | Render personal API key | 1. Go to [Render Dashboard](https://dashboard.render.com/) 2. Click **Account Settings** → **API Keys** 3. Create new API key |
+| `RENDER_API_KEY` | Render personal API key | 1. Go to [Render Dashboard](https://dashboard.render.com/) 2. Click **Account Settings**  **API Keys** 3. Create new API key |
 | `RENDER_SERVICE_ID` | Render service ID for backend | 1. Create Web Service in Render 2. Copy Service ID from service settings |
 | `RENDER_HEALTH_URL` | Health check URL | Your Render service URL + `/healthz` (e.g., `https://cognisphere-backend.onrender.com/healthz`) |
 
@@ -27,12 +27,12 @@ This guide explains how to set up the required secrets for The Cognisphere's CI/
 | `NEO4J_AUTH` | Neo4j authentication | Uses NetworkX fallback |
 | `REDIS_URL` | Redis cache URL | Not used in free tier |
 
-## 🚀 Render.com Setup
+## Render.com Setup
 
 ### 1. Create Backend Service
 
 1. Go to [Render Dashboard](https://dashboard.render.com/)
-2. Click **New** → **Web Service**
+2. Click **New**  **Web Service**
 3. Connect your GitHub repository
 4. Configure:
    - **Name**: `cognisphere-backend`
@@ -63,7 +63,7 @@ CORS_ORIGINS=*
 2. Copy the **Service ID** (looks like `srv-xxxxx`)
 3. Add to GitHub secrets as `RENDER_SERVICE_ID`
 
-## 🔍 Health Check Setup
+## Health Check Setup
 
 ### 1. Get Health URL
 
@@ -83,7 +83,7 @@ curl https://your-service-name.onrender.com/healthz
 
 Add the full health URL as `RENDER_HEALTH_URL`
 
-## ✅ Verification
+## Verification
 
 After setting up secrets:
 
@@ -92,7 +92,7 @@ After setting up secrets:
 3. **Verify health endpoint** - Should return `{"ok": true}`
 4. **Test API** - Visit your Render URL + `/docs`
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Backend Deployment Fails
 
@@ -112,16 +112,16 @@ After setting up secrets:
 - Verify backend URL in frontend environment
 - Check network tab in browser dev tools
 
-## 🔄 Automatic Updates
+## Automatic Updates
 
 Once set up, the system will:
 
-- ✅ Auto-deploy backend on every push to `main`
-- ✅ Auto-deploy frontend to GitHub Pages
-- ✅ Run health checks after deployment
-- ✅ Build and push Docker images on releases
+-  Auto-deploy backend on every push to `main`
+-  Auto-deploy frontend to GitHub Pages
+-  Run health checks after deployment
+-  Build and push Docker images on releases
 
-## 📞 Support
+## Support
 
 If you encounter issues:
 
@@ -132,4 +132,4 @@ If you encounter issues:
 
 ---
 
-**🎉 That's it! Your Cognisphere will now auto-deploy with every push!**
+**That's it! Your Cognisphere will now auto-deploy with every push!**

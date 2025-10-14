@@ -34,7 +34,7 @@ if [ ! -f "README.md" ]; then
     exit 1
 fi
 
-print_status "🚀 Starting The Cognisphere development environment..."
+print_status " Starting The Cognisphere development environment..."
 
 # Create necessary directories
 print_status "Creating directories..."
@@ -163,7 +163,7 @@ print_success "Scripts made executable"
 
 # Print usage instructions
 echo ""
-print_success "🎉 Development environment setup complete!"
+print_success " Development environment setup complete!"
 echo ""
 echo "To start the development servers:"
 echo ""
@@ -187,4 +187,4 @@ echo "  Frontend: http://localhost:5173"
 echo "  Backend API: http://localhost:8000"
 echo "  API Docs: http://localhost:8000/docs"
 echo ""
-print_status "Happy coding! 🧠"
+print_status "Happy coding! "

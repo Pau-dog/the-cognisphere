@@ -24,7 +24,7 @@ print_banner() {
     echo "                                        | |                      "
     echo "                                        |_|                      "
     echo -e "${NC}"
-    echo -e "${BLUE}🚀 Emergent Intelligence Civilization Engine${NC}"
+    echo -e "${BLUE} Emergent Intelligence Civilization Engine${NC}"
     echo ""
 }
 
@@ -45,34 +45,34 @@ print_error() {
 }
 
 print_menu() {
-    echo "🎯 Choose your deployment method:"
+    echo " Choose your deployment method:"
     echo ""
-    echo "1. 🏠 Local Development (recommended for development)"
+    echo "1.  Local Development (recommended for development)"
     echo "   - Uses cognisphere.dev domain"
     echo "   - Hot reloading enabled"
     echo "   - Minimal resource usage"
     echo ""
-    echo "2. 🐳 Docker Development (recommended for testing)"
+    echo "2.  Docker Development (recommended for testing)"
     echo "   - Uses cognisphere.local domain"
     echo "   - Full containerized environment"
     echo "   - Easy to reset and clean"
     echo ""
-    echo "3. 🚀 Production Deployment (recommended for demos)"
+    echo "3.  Production Deployment (recommended for demos)"
     echo "   - Uses cognisphere.local domain"
     echo "   - SSL certificates"
     echo "   - Full monitoring stack"
     echo ""
-    echo "4. 🌐 Cloud Deployment (for sharing)"
+    echo "4.  Cloud Deployment (for sharing)"
     echo "   - Deploy to cloud provider"
     echo "   - Public URL generation"
     echo "   - Production-ready setup"
     echo ""
-    echo "5. 🔧 Management Options"
+    echo "5.  Management Options"
     echo "   - Stop all services"
     echo "   - View logs"
     echo "   - Reset environment"
     echo ""
-    echo "0. ❌ Exit"
+    echo "0.  Exit"
     echo ""
 }
 
@@ -103,12 +103,12 @@ deploy_docker_dev() {
     
     print_success "Docker development environment started!"
     echo ""
-    echo "🌐 Access URLs:"
+    echo " Access URLs:"
     echo "   Frontend: http://cognisphere.local:5173"
     echo "   API: http://cognisphere.local:8000"
     echo "   Neo4j: http://cognisphere.local:7474"
     echo ""
-    echo "🔧 Management:"
+    echo " Management:"
     echo "   View logs: docker-compose -f docker/docker-compose.yml logs -f"
     echo "   Stop: docker-compose -f docker/docker-compose.yml down"
     echo ""
@@ -131,13 +131,13 @@ deploy_production() {
 deploy_cloud() {
     print_status "Cloud deployment options..."
     
-    echo "🌐 Choose your cloud provider:"
+    echo " Choose your cloud provider:"
     echo ""
-    echo "1. 🐙 GitHub Codespaces (instant setup)"
-    echo "2. ☁️  Railway (simple deployment)"
-    echo "3. 🚀 Render (production ready)"
-    echo "4. 🔥 Vercel + Railway (hybrid)"
-    echo "5. 🐳 Docker Hub (container registry)"
+    echo "1.  GitHub Codespaces (instant setup)"
+    echo "2.   Railway (simple deployment)"
+    echo "3.  Render (production ready)"
+    echo "4.  Vercel + Railway (hybrid)"
+    echo "5.  Docker Hub (container registry)"
     echo ""
     read -p "Enter choice (1-5): " cloud_choice
     
@@ -189,13 +189,13 @@ deploy_cloud() {
 manage_services() {
     print_status "Management options..."
     
-    echo "🔧 What would you like to do?"
+    echo " What would you like to do?"
     echo ""
-    echo "1. 🛑 Stop all services"
-    echo "2. 📋 View logs"
-    echo "3. 🔄 Restart services"
-    echo "4. 🧹 Reset environment"
-    echo "5. 📊 Check status"
+    echo "1.  Stop all services"
+    echo "2.  View logs"
+    echo "3.  Restart services"
+    echo "4.  Reset environment"
+    echo "5.  Check status"
     echo ""
     read -p "Enter choice (1-5): " manage_choice
     
@@ -282,7 +282,7 @@ main() {
                 manage_services
                 ;;
             0)
-                print_status "Goodbye! 👋"
+                print_status "Goodbye! "
                 exit 0
                 ;;
             *)

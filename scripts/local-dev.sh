@@ -33,7 +33,7 @@ DOMAIN="cognisphere.dev"
 BACKEND_PORT="8001"
 FRONTEND_PORT="3001"
 
-print_status "🛠️  Starting The Cognisphere in development mode..."
+print_status "  Starting The Cognisphere in development mode..."
 
 # Check prerequisites
 check_prerequisites() {
@@ -251,24 +251,24 @@ initialize_simulation() {
 
 # Display access information
 show_access_info() {
-    print_success "🎉 The Cognisphere development environment is running!"
+    print_success " The Cognisphere development environment is running!"
     echo ""
-    echo "🌐 Access URLs:"
+    echo " Access URLs:"
     echo "   Frontend: http://$DOMAIN:$FRONTEND_PORT"
     echo "   API: http://$DOMAIN:$BACKEND_PORT"
     echo "   API Docs: http://$DOMAIN:$BACKEND_PORT/api/docs"
     echo "   Health Check: http://$DOMAIN:$BACKEND_PORT/api/health"
     echo ""
-    echo "📊 Monitoring:"
+    echo " Monitoring:"
     echo "   Backend Logs: tail -f logs/backend.log"
     echo "   Frontend Logs: tail -f logs/frontend.log"
     echo ""
-    echo "🔧 Management:"
+    echo " Management:"
     echo "   Stop Backend: kill \$(cat logs/backend.pid)"
     echo "   Stop Frontend: kill \$(cat logs/frontend.pid)"
     echo "   Stop All: $0 --stop"
     echo ""
-    echo "💡 Hot reloading is enabled for both frontend and backend!"
+    echo " Hot reloading is enabled for both frontend and backend!"
     echo ""
 }
 

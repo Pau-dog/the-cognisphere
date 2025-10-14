@@ -102,7 +102,7 @@ def create_preset_config(preset: str, **kwargs) -> SimulationConfig:
 
 async def run_simulation(config: SimulationConfig, verbose: bool = False) -> Dict[str, Any]:
     """Run a simulation with the given configuration."""
-    print(f"🚀 Starting simulation with {config.num_agents} agents...")
+    print(f" Starting simulation with {config.num_agents} agents...")
     print(f"   Seed: {config.seed}")
     print(f"   Max ticks: {config.max_ticks}")
     print(f"   LLM mode: {config.llm_mode.value}")
@@ -113,13 +113,13 @@ async def run_simulation(config: SimulationConfig, verbose: bool = False) -> Dic
     engine = SimulationEngine(config)
     
     # Initialize
-    print("🔧 Initializing simulation engine...")
+    print(" Initializing simulation engine...")
     success = await engine.initialize()
     if not success:
         raise RuntimeError("Failed to initialize simulation engine")
     
     # Run simulation
-    print("▶️  Running simulation...")
+    print("  Running simulation...")
     start_time = time.time()
     
     success = await engine.run_simulation()
@@ -132,7 +132,7 @@ async def run_simulation(config: SimulationConfig, verbose: bool = False) -> Dic
     # Get final statistics
     final_summary = engine.world.get_world_summary()
     
-    print(f"✅ Simulation completed in {duration:.2f} seconds")
+    print(f" Simulation completed in {duration:.2f} seconds")
     print(f"   Total ticks: {engine.world.current_tick}")
     print(f"   Final agents: {len(engine.world.agents)}")
     print(f"   Final factions: {len(engine.world.factions)}")
@@ -166,7 +166,7 @@ async def run_simulation(config: SimulationConfig, verbose: bool = False) -> Dic
 
 async def benchmark_simulation(config: SimulationConfig, runs: int = 5) -> Dict[str, Any]:
     """Run multiple simulations for benchmarking."""
-    print(f"🏁 Running benchmark with {runs} iterations...")
+    print(f" Running benchmark with {runs} iterations...")
     
     results = []
     total_start = time.time()
@@ -180,7 +180,7 @@ async def benchmark_simulation(config: SimulationConfig, runs: int = 5) -> Dict[
             result = await run_simulation(run_config, verbose=False)
             results.append(result)
         except Exception as e:
-            print(f"❌ Run {i + 1} failed: {e}")
+            print(f" Run {i + 1} failed: {e}")
             continue
     
     total_duration = time.time() - total_start
@@ -210,7 +210,7 @@ async def benchmark_simulation(config: SimulationConfig, runs: int = 5) -> Dict[
         "results": results
     }
     
-    print(f"\n📊 Benchmark Results:")
+    print(f"\n Benchmark Results:")
     print(f"   Runs completed: {benchmark_results['runs']}")
     print(f"   Total time: {benchmark_results['total_duration']:.2f}s")
     print(f"   Avg duration: {benchmark_results['avg_duration']:.2f}s")
@@ -319,12 +319,12 @@ async def main():
         if args.output:
             with open(args.output, 'w') as f:
                 json.dump(results, f, indent=2)
-            print(f"📁 Results saved to {args.output}")
+            print(f" Results saved to {args.output}")
         
-        print("\n🎉 Simulation completed successfully!")
+        print("\n Simulation completed successfully!")
         
     except Exception as e:
-        print(f"❌ Simulation failed: {e}")
+        print(f" Simulation failed: {e}")
         if args.verbose:
             import traceback
             traceback.print_exc()

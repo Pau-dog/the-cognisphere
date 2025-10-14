@@ -1,8 +1,8 @@
-# 🚀 The Cognisphere Deployment Guide
+# The Cognisphere Deployment Guide
 
 This guide provides multiple deployment options to avoid localhost issues and ensure robust, production-ready access to The Cognisphere.
 
-## 🎯 Deployment Options Overview
+## Deployment Options Overview
 
 | Method | Best For | Domain | SSL | Monitoring | Complexity |
 |--------|----------|--------|-----|------------|------------|
@@ -11,7 +11,7 @@ This guide provides multiple deployment options to avoid localhost issues and en
 | Production | Demos/Production | cognisphere.local | Yes | Full | High |
 | Cloud | Sharing/Public | Custom | Yes | Full | Variable |
 
-## 🏠 Local Development (Recommended for Development)
+## Local Development (Recommended for Development)
 
 ### Prerequisites
 - Python 3.9+
@@ -28,18 +28,18 @@ This guide provides multiple deployment options to avoid localhost issues and en
 ```
 
 ### Features
-- ✅ Hot reloading for frontend and backend
-- ✅ Uses `cognisphere.dev` domain (no localhost)
-- ✅ Minimal resource usage
-- ✅ Easy debugging
-- ✅ NetworkX fallback (no Neo4j required)
+- Hot reloading for frontend and backend
+- Uses `cognisphere.dev` domain (no localhost)
+- Minimal resource usage
+- Easy debugging
+- NetworkX fallback (no Neo4j required)
 
 ### Access URLs
 - Frontend: `http://cognisphere.dev:3001`
 - API: `http://cognisphere.dev:8001`
 - API Docs: `http://cognisphere.dev:8001/api/docs`
 
-## 🐳 Docker Development (Recommended for Testing)
+## Docker Development (Recommended for Testing)
 
 ### Prerequisites
 - Docker & Docker Compose
@@ -55,18 +55,18 @@ docker-compose -f docker/docker-compose.yml up --build
 ```
 
 ### Features
-- ✅ Full containerized environment
-- ✅ Uses `cognisphere.local` domain
-- ✅ Neo4j database included
-- ✅ Easy to reset and clean
-- ✅ Consistent across machines
+- Full containerized environment
+- Uses `cognisphere.local` domain
+- Neo4j database included
+- Easy to reset and clean
+- Consistent across machines
 
 ### Access URLs
 - Frontend: `http://cognisphere.local:5173`
 - API: `http://cognisphere.local:8000`
 - Neo4j: `http://cognisphere.local:7474`
 
-## 🚀 Production Deployment (Recommended for Demos)
+## Production Deployment (Recommended for Demos)
 
 ### Prerequisites
 - Docker & Docker Compose
@@ -83,12 +83,12 @@ COGNISPHERE_DOMAIN=your-domain.local ./scripts/deploy.sh
 ```
 
 ### Features
-- ✅ SSL/TLS encryption
-- ✅ Nginx reverse proxy
-- ✅ Full monitoring stack (Prometheus + Grafana)
-- ✅ Production-grade security
-- ✅ Auto-scaling ready
-- ✅ Health checks and logging
+- SSL/TLS encryption
+- Nginx reverse proxy
+- Full monitoring stack (Prometheus + Grafana)
+- Production-grade security
+- Auto-scaling ready
+- Health checks and logging
 
 ### Access URLs
 - Frontend: `https://cognisphere.local`
@@ -96,7 +96,7 @@ COGNISPHERE_DOMAIN=your-domain.local ./scripts/deploy.sh
 - Neo4j: `https://cognisphere.local:7474`
 - Monitoring: `https://cognisphere.local:3001`
 
-## 🌐 Cloud Deployment Options
+## Cloud Deployment Options
 
 ### GitHub Codespaces
 ```bash
@@ -130,7 +130,7 @@ railway up
 - Backend: Deploy to Railway
 - Update frontend environment variables
 
-## 🔧 Environment Configuration
+##  Environment Configuration
 
 ### Local Development (.env)
 ```bash
@@ -162,7 +162,7 @@ VITE_API_URL=https://cognisphere.local/api
 VITE_WS_URL=wss://cognisphere.local/api
 ```
 
-## 🛠️ Management Commands
+##  Management Commands
 
 ### Service Control
 ```bash
@@ -195,7 +195,7 @@ docker exec -it cognisphere_neo4j_1 cypher-shell
 docker exec -it cognisphere_redis_1 redis-cli
 ```
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -259,7 +259,7 @@ rm -rf docker/ssl/*
 export SIMULATION_AGENTS=50
 ```
 
-## 📊 Monitoring & Observability
+##  Monitoring & Observability
 
 ### Built-in Monitoring
 - **Prometheus**: Metrics collection
@@ -278,7 +278,7 @@ export SIMULATION_AGENTS=50
 - Simulation tick duration
 - Error rates
 
-## 🔒 Security Considerations
+##  Security Considerations
 
 ### Production Security
 - SSL/TLS encryption
@@ -292,7 +292,7 @@ export SIMULATION_AGENTS=50
 - Firewall rules
 - VPN access (for remote teams)
 
-## 🚀 Scaling Options
+##  Scaling Options
 
 ### Horizontal Scaling
 - Load balancer (Nginx)
@@ -304,7 +304,7 @@ export SIMULATION_AGENTS=50
 - Optimize database settings
 - Use faster storage (SSD)
 
-## 📝 Best Practices
+##  Best Practices
 
 1. **Always use dedicated domains** (never localhost)
 2. **Use environment-specific configurations**
@@ -313,7 +313,7 @@ export SIMULATION_AGENTS=50
 5. **Keep backups** of important simulation states
 6. **Use version control** for all configuration changes
 
-## 🆘 Getting Help
+##  Getting Help
 
 ### Logs and Debugging
 ```bash
@@ -346,4 +346,4 @@ docker exec cognisphere_neo4j_1 cypher-shell "RETURN 1"
 
 ---
 
-**Remember**: The Cognisphere is designed to avoid localhost issues entirely. Always use the provided domains (`cognisphere.local` or `cognisphere.dev`) for the best experience! 🚀
+**Remember**: The Cognisphere is designed to avoid localhost issues entirely. Always use the provided domains (`cognisphere.local` or `cognisphere.dev`) for the best experience! 
