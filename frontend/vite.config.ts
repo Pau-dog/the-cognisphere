@@ -23,8 +23,8 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
-          ui: ['@headlessui/react', '@heroicons/react'],
-          visualization: ['cytoscape', 'vis-network'],
+          ui: ['@headlessui/react'],
+          visualization: ['cytoscape'],
         },
       },
     },
