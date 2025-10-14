@@ -14,7 +14,10 @@ import os
 
 from .world import World, WorldState
 from .scheduler import SimulationScheduler, SchedulerConfig
-from .adapters import LLMAdapter, LLMAdapterFactory, LLMConfig, LLMMode
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from adapters import LLMAdapter, LLMAdapterFactory, LLMConfig, LLMMode
 from .environmental_stimuli import EnvironmentalStimuliManager, create_default_stimuli_manager
 
 
