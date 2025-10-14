@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: cognisphere-backend
+    env: docker
+    plan: free
+    region: oregon
+    autoDeploy: true
+    healthCheckPath: /healthz
+    buildCommand: ""
+    startCommand: ""
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    envVars:
+      - key: ENV
+        value: production
+      - key: PORT
+        value: "8000"
+      - key: LLM_MODE
+        value: mock
+      - key: MEM_BACKEND
+        value: networkx
+      - key: VEC_BACKEND
+        value: faiss
+      - key: SIMULATION_SEED
+        value: "42"
+      - key: SIMULATION_AGENTS
+        value: "100"
+      - key: LOG_LEVEL
+        value: INFO
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: NEO4J_URI
+        value: ""
+      - key: NEO4J_AUTH
+        value: ""
+      - key: REDIS_URL
+        value: ""
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET
+        generateValue: true
