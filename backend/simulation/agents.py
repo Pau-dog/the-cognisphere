@@ -353,16 +353,9 @@ class Agent:
     def reflect(self, tick: int):
         """Periodic reflection to consolidate memories and update satisfaction."""
         # Update satisfaction based on recent experiences
-        # recent_events = self.memory.get_recent_events(limit=10)
-        
-        positive_events = sum(1 for event in recent_events 
-                            if event.get("type") in ["trade_success", "alliance_formed", "myth_created"])
-        negative_events = sum(1 for event in recent_events 
-                            if event.get("type") in ["betrayal", "trade_failed", "conflict"])
-        
-        if recent_events:
-            event_ratio = positive_events / len(recent_events)
-            self.satisfaction = 0.7 * self.satisfaction + 0.3 * event_ratio
+        # For now, use a simple satisfaction update
+        satisfaction_change = random.uniform(-0.1, 0.1)
+        self.satisfaction = max(0.0, min(1.0, self.satisfaction + satisfaction_change))
         
         # Consolidate memories
         self.memory.consolidate(tick)

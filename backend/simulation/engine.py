@@ -11,11 +11,9 @@ from dataclasses import dataclass
 from enum import Enum
 import json
 import os
-
+import sys
 from .world import World, WorldState
 from .scheduler import SimulationScheduler, SchedulerConfig
-import sys
-import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from adapters import LLMAdapter, LLMAdapterFactory, LLMConfig, LLMMode
 from .environmental_stimuli import EnvironmentalStimuliManager, create_default_stimuli_manager

@@ -14,7 +14,7 @@ from pydantic import BaseModel
 import uvicorn
 
 from simulation.engine import SimulationEngine, SimulationConfig, SimulationState
-from simulation.environmental_stimuli import EnvironmentalStimuliManager, StimulusType
+from simulation.environmental_stimuli import StimulusType
 from adapters import LLMMode
 
 

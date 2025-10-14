@@ -6,16 +6,13 @@ as environmental stimuli to influence agent behavior and cultural evolution.
 """
 
 import asyncio
-import json
 import logging
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Any, Union
+from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, field
 from enum import Enum
 import aiohttp
 import feedparser
-from bs4 import BeautifulSoup
-import requests
 from textblob import TextBlob
 import numpy as np
 
@@ -333,7 +330,7 @@ class WeatherSource(DataSource):
         stimuli = []
         
         try:
-            url = f"http://api.openweathermap.org/data/2.5/weather"
+            url = "http://api.openweathermap.org/data/2.5/weather"
             params = {
                 "q": self.city,
                 "appid": self.api_key,
@@ -595,7 +592,7 @@ if __name__ == "__main__":
         print(f"Fetched {len(stimuli)} environmental stimuli:")
         for stimulus in stimuli[:5]:  # Show first 5
             print(f"- {stimulus.title} ({stimulus.stimulus_type.value})")
-            print(f"  Sentiment: {stimiment.sentiment:.2f}, Intensity: {stimulus.intensity.value}")
+            print(f"  Sentiment: {stimulus.sentiment:.2f}, Intensity: {stimulus.intensity.value}")
             print(f"  Cultural Impact: {stimulus.cultural_impact:.2f}")
             print()
     
