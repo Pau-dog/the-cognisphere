@@ -4,7 +4,7 @@
 [![Release](https://github.com/zaydabash/the-cognisphere/actions/workflows/release.yml/badge.svg)](https://github.com/zaydabash/the-cognisphere/actions/workflows/release.yml)
 [![Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222)](https://github.com/zaydabash/the-cognisphere/deployments/activity_log?environment=github-pages)
 [![Backend](https://img.shields.io/badge/Deploy-Render-2b2b2b)](https://dashboard.render.com/)
-[![Containers](https://ghcr-badge.egpl.dev/zaydabash/the-cognisphere/latest_tag?label=GHCR)](https://github.com/zaydabash?tab=packages)
+[![Containers](https://img.shields.io/badge/Containers-Docker%20Ready-blue)](https://github.com/zaydabash/the-cognisphere/pkgs/container/cognisphere)
 
 A living ecosystem of cognitive agents that evolve language, culture, alliances, and institutions through emergent dynamics.
 
