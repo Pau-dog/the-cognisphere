@@ -7,11 +7,10 @@ mechanisms for resource trading and social interactions.
 
 import random
 import uuid
-from typing import Dict, List, Optional, Tuple, Any
+from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, field
 from enum import Enum
-from datetime import datetime, timedelta
-import math
+from datetime import datetime
 from collections import defaultdict
 
 

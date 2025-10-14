@@ -7,16 +7,15 @@ and coordinates between different simulation systems.
 
 import random
 import uuid
-from typing import Dict, List, Optional, Tuple, Any, Set
+from typing import Dict, List, Optional, Any, Set
 from dataclasses import dataclass, field
 from enum import Enum
-import json
 from collections import defaultdict
 
 from .agents import Agent, AgentPersonality
-from .economy import Economy, Trade
-from .culture import Culture, Myth, Norm, Slang
-from .events import EventSystem, Event
+from .economy import Economy
+from .culture import Culture
+from .events import EventSystem
 from .memory import AgentMemory
 
 
@@ -312,7 +311,6 @@ class World:
     
     def _calculate_ideology_similarity(self, agent1: Agent, agent2: Agent) -> float:
         """Calculate ideology similarity between two agents."""
-        import numpy as np
         from scipy.spatial.distance import cosine
         
         try:

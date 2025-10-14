@@ -3,12 +3,10 @@ Tests for economy and trade systems.
 """
 
 import pytest
-import numpy as np
-from unittest.mock import Mock, patch
 
 from simulation.economy import (
     Economy, Market, Resource, Trade, TradeStatus,
-    ResourceType, Market
+    Market
 )
 from simulation.agents import Agent, AgentPersonality
 

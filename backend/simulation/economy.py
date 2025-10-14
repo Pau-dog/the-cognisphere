@@ -7,11 +7,10 @@ and economic events that affect agent behavior and civilization development.
 
 import random
 import uuid
-from typing import Dict, List, Optional, Tuple, Any, Set
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, field
 from enum import Enum
 import numpy as np
-from collections import defaultdict, deque
 
 
 class ResourceType(Enum):

@@ -4,11 +4,10 @@ Tests for agent behavior and cognitive architecture.
 
 import pytest
 import numpy as np
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
 from simulation.agents import Agent, AgentPersonality, AgentState, TrustRelationship
-from simulation.economy import Trade, TradeStatus
-from simulation.culture import Myth, Norm, Slang
+from simulation.culture import Myth, Norm
 
 
 class TestAgentPersonality:

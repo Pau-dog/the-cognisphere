@@ -3,13 +3,10 @@ Tests for cultural evolution systems.
 """
 
 import pytest
-import numpy as np
-from unittest.mock import Mock, patch
-from scipy.spatial.distance import jensenshannon
+from unittest.mock import patch
 
 from simulation.culture import (
-    Culture, Myth, Norm, Slang, Language,
-    MythTheme, NormType
+    Culture, Myth, Norm, Slang, Language
 )
 from simulation.agents import Agent, AgentPersonality
 

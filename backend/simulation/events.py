@@ -5,11 +5,9 @@ and emergent dynamics that affect agent behavior and civilization development.
 
 import random
 import uuid
-from typing import Dict, List, Optional, Tuple, Any, Callable
+from typing import Dict, List, Optional, Any, Callable
 from dataclasses import dataclass, field
 from enum import Enum
-import json
-from datetime import datetime
 
 
 class EventType(Enum):

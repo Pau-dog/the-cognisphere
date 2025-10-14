@@ -10,6 +10,7 @@ import Economy from './pages/Economy'
 import Network from './pages/Network'
 import Settings from './pages/Settings'
 import About from './pages/About'
+import EnvironmentalStimuli from './pages/EnvironmentalStimuli'
 import { SimulationProvider } from './state/SimulationContext'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="culture" element={<Culture />} />
             <Route path="economy" element={<Economy />} />
             <Route path="network" element={<Network />} />
+            <Route path="environmental-stimuli" element={<EnvironmentalStimuli />} />
             <Route path="settings" element={<Settings />} />
             <Route path="about" element={<About />} />
           </Route>

@@ -7,17 +7,15 @@ between different simulation systems.
 
 import asyncio
 import time
-from typing import Dict, List, Optional, Any, Callable, Set
+from typing import Dict, List, Optional, Any, Callable
 from dataclasses import dataclass, field
 from enum import Enum
 import random
-from collections import defaultdict, deque
 
 from .world import World
-from .agents import Agent, AgentState
+from .agents import Agent
 from .economy import Trade
-from .culture import Myth, Norm
-from .events import EventSystem, Event
+from .culture import Norm
 
 
 class SchedulerState(Enum):
@@ -368,7 +366,6 @@ class SimulationScheduler:
     
     def _calculate_personality_compatibility(self, agent1: Agent, agent2: Agent) -> float:
         """Calculate personality compatibility between two agents."""
-        import numpy as np
         from scipy.spatial.distance import cosine
         
         p1 = agent1.personality.to_vector()

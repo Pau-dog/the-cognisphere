@@ -4,13 +4,10 @@ Tests for the simulation engine core functionality.
 
 import pytest
 import asyncio
-from unittest.mock import Mock, patch
 
 from simulation.engine import SimulationEngine, SimulationConfig
-from simulation.world import World, WorldState
-from simulation.agents import Agent, AgentPersonality
-from simulation.economy import Economy
-from simulation.culture import Culture
+from simulation.world import WorldState
+from simulation.agents import Agent
 from adapters import LLMMode
 
 

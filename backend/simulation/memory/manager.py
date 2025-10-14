@@ -6,17 +6,15 @@ comprehensive memory management for agents and the simulation.
 """
 
 import uuid
-from typing import Dict, List, Optional, Tuple, Any, Set
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from collections import defaultdict, deque
-import asyncio
 import threading
 from concurrent.futures import ThreadPoolExecutor
 
-from .graph import MemoryGraph, MemoryNode, MemoryEdge, MemoryType, RelationshipType
+from .graph import MemoryGraph, MemoryNode, MemoryType, RelationshipType
 from .vector import VectorMemorySystem, VectorMemory
-from ..agents import Agent
 
 
 @dataclass

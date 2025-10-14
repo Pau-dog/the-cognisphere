@@ -7,13 +7,11 @@ similarity matching, and knowledge retrieval using embeddings.
 
 import uuid
 import numpy as np
-from typing import Dict, List, Optional, Tuple, Any, Union
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, field
 from datetime import datetime
 import json
-import pickle
 import os
-from collections import defaultdict, deque
 import hashlib
 
 try:

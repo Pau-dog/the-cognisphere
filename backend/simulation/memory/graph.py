@@ -7,13 +7,12 @@ agent memories, relationships, and knowledge structures.
 
 import uuid
 import json
-from typing import Dict, List, Optional, Set, Tuple, Any, Union
+from typing import Dict, List, Optional, Set, Tuple, Any
 from dataclasses import dataclass, field
 from enum import Enum
 from datetime import datetime, timedelta
 import networkx as nx
-from collections import defaultdict, deque
-import pickle
+from collections import defaultdict
 import os
 
 

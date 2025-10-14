@@ -6,19 +6,15 @@ and real-time visualization of emergent civilization dynamics.
 """
 
 import asyncio
-import json
-from typing import Dict, List, Optional, Any
-from fastapi import FastAPI, HTTPException, BackgroundTasks
+from typing import Optional
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import uvicorn
 
 from simulation.engine import SimulationEngine, SimulationConfig, SimulationState
-from simulation.world import World
-from simulation.agents import Agent
-from simulation.economy import Economy
-from simulation.culture import Culture, Myth, Norm, Slang
+from simulation.environmental_stimuli import EnvironmentalStimuliManager, StimulusType
 from adapters import LLMMode
 
 
@@ -504,6 +500,138 @@ async def reset_simulation():
             return {"status": "reset_complete"}
         else:
             raise HTTPException(status_code=500, detail="Failed to reset simulation")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# Environmental Stimuli endpoints
+@app.get("/stimuli/status")
+async def get_stimuli_status():
+    """Get environmental stimuli system status."""
+    try:
+        if not simulation_engine:
+            raise HTTPException(status_code=404, detail="No active simulation")
+        
+        status = simulation_engine.get_environmental_stimuli_status()
+        return status
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/stimuli/active")
+async def get_active_stimuli():
+    """Get currently active environmental stimuli."""
+    try:
+        if not simulation_engine or not simulation_engine.stimuli_manager:
+            raise HTTPException(status_code=404, detail="No active simulation or stimuli manager")
+        
+        stimuli = simulation_engine.stimuli_manager.get_active_stimuli()
+        
+        # Convert to JSON-serializable format
+        stimuli_data = []
+        for stimulus in stimuli:
+            stimuli_data.append({
+                "id": stimulus.id,
+                "type": stimulus.stimulus_type.value,
+                "title": stimulus.title,
+                "content": stimulus.content[:200] + "..." if len(stimulus.content) > 200 else stimulus.content,
+                "source": stimulus.source,
+                "timestamp": stimulus.timestamp.isoformat(),
+                "intensity": stimulus.intensity.value,
+                "sentiment": stimulus.sentiment,
+                "keywords": stimulus.keywords,
+                "cultural_impact": stimulus.cultural_impact,
+                "economic_impact": stimulus.economic_impact,
+                "social_impact": stimulus.social_impact
+            })
+        
+        return {
+            "count": len(stimuli_data),
+            "stimuli": stimuli_data
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/stimuli/by-type/{stimulus_type}")
+async def get_stimuli_by_type(stimulus_type: str):
+    """Get stimuli filtered by type."""
+    try:
+        if not simulation_engine or not simulation_engine.stimuli_manager:
+            raise HTTPException(status_code=404, detail="No active simulation or stimuli manager")
+        
+        # Validate stimulus type
+        try:
+            stimulus_type_enum = StimulusType(stimulus_type)
+        except ValueError:
+            raise HTTPException(status_code=400, detail=f"Invalid stimulus type: {stimulus_type}")
+        
+        stimuli = simulation_engine.stimuli_manager.get_stimuli_by_type(stimulus_type_enum)
+        
+        # Convert to JSON-serializable format
+        stimuli_data = []
+        for stimulus in stimuli:
+            stimuli_data.append({
+                "id": stimulus.id,
+                "type": stimulus.stimulus_type.value,
+                "title": stimulus.title,
+                "content": stimulus.content[:200] + "..." if len(stimulus.content) > 200 else stimulus.content,
+                "source": stimulus.source,
+                "timestamp": stimulus.timestamp.isoformat(),
+                "intensity": stimulus.intensity.value,
+                "sentiment": stimulus.sentiment,
+                "keywords": stimulus.keywords,
+                "cultural_impact": stimulus.cultural_impact,
+                "economic_impact": stimulus.economic_impact,
+                "social_impact": stimulus.social_impact
+            })
+        
+        return {
+            "type": stimulus_type,
+            "count": len(stimuli_data),
+            "stimuli": stimuli_data
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/stimuli/fetch")
+async def fetch_stimuli():
+    """Manually trigger fetching of environmental stimuli."""
+    try:
+        if not simulation_engine or not simulation_engine.stimuli_manager:
+            raise HTTPException(status_code=404, detail="No active simulation or stimuli manager")
+        
+        # Fetch stimuli
+        stimuli = await simulation_engine.stimuli_manager.fetch_all_stimuli()
+        
+        return {
+            "status": "success",
+            "fetched_count": len(stimuli),
+            "message": f"Fetched {len(stimuli)} environmental stimuli"
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/stimuli/divergence")
+async def get_cultural_divergence():
+    """Get cultural divergence analysis from reality."""
+    try:
+        if not simulation_engine or not simulation_engine.stimuli_manager:
+            raise HTTPException(status_code=404, detail="No active simulation or stimuli manager")
+        
+        divergence_summary = simulation_engine.stimuli_manager.get_cultural_divergence_summary()
+        
+        return {
+            "cultural_divergence": divergence_summary,
+            "interpretation": {
+                "mirroring_factor": f"{divergence_summary['mirroring_factor']:.1%} of culture mirrors reality",
+                "divergence_rate": f"{divergence_summary['divergence_rate']:.1%} divergence rate per stimulus",
+                "reality_baseline": "Baseline patterns from real-world data",
+                "future_projection": "Culture evolving toward future version of reality"
+            }
+        }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

@@ -5,12 +5,10 @@ norm formation, and cultural diffusion mechanisms.
 
 import random
 import uuid
-import re
-from typing import Dict, List, Optional, Tuple, Any, Set
+from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, field
 from enum import Enum
 import numpy as np
-from collections import defaultdict, Counter
 from scipy.spatial.distance import jensenshannon
 
 

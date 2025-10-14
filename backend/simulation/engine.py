@@ -5,19 +5,17 @@ The SimulationEngine is the central coordinator that manages the world state,
 scheduler, and all simulation systems to create emergent civilization dynamics.
 """
 
-import asyncio
 import time
 from typing import Dict, List, Optional, Any, Callable
 from dataclasses import dataclass
 from enum import Enum
 import json
 import os
-from pathlib import Path
 
 from .world import World, WorldState
-from .scheduler import SimulationScheduler, SchedulerConfig, SchedulerState
-from .agents import Agent, AgentPersonality
+from .scheduler import SimulationScheduler, SchedulerConfig
 from .adapters import LLMAdapter, LLMAdapterFactory, LLMConfig, LLMMode
+from .environmental_stimuli import EnvironmentalStimuliManager, create_default_stimuli_manager
 
 
 class SimulationState(Enum):
@@ -92,6 +90,7 @@ class SimulationEngine:
         self.world: Optional[World] = None
         self.scheduler: Optional[SimulationScheduler] = None
         self.llm_adapter: Optional[LLMAdapter] = None
+        self.stimuli_manager: Optional[EnvironmentalStimuliManager] = None
         
         # State tracking
         self.start_time: Optional[float] = None
@@ -144,6 +143,9 @@ class SimulationEngine:
             
             # Create snapshot directory
             os.makedirs(self.config.snapshot_directory, exist_ok=True)
+            
+            # Initialize environmental stimuli manager
+            self.stimuli_manager = create_default_stimuli_manager()
             
             # Load external stimuli if provided
             if self.config.stimuli_file and os.path.exists(self.config.stimuli_file):
@@ -350,6 +352,10 @@ class SimulationEngine:
     
     async def _on_tick(self, tick: int):
         """Handle tick callback."""
+        # Fetch and apply environmental stimuli every 10 ticks
+        if tick % 10 == 0 and self.stimuli_manager:
+            await self._apply_environmental_stimuli()
+        
         # Call registered callbacks
         for callback in self.tick_callbacks:
             try:
@@ -446,3 +452,111 @@ class SimulationEngine:
         
         self.state = SimulationState.STOPPED
         print("Simulation engine cleaned up")
+    
+    async def _apply_environmental_stimuli(self):
+        """Fetch and apply environmental stimuli to the simulation."""
+        if not self.stimuli_manager or not self.world:
+            return
+        
+        try:
+            # Fetch new stimuli
+            stimuli = await self.stimuli_manager.fetch_all_stimuli()
+            
+            if not stimuli:
+                return
+            
+            print(f"Applying {len(stimuli)} environmental stimuli...")
+            
+            # Apply stimuli to agents and world
+            for stimulus in stimuli:
+                await self._apply_stimulus_to_world(stimulus)
+            
+            # Clean up old stimuli
+            self.stimuli_manager.cleanup_old_stimuli()
+            
+        except Exception as e:
+            print(f"Error applying environmental stimuli: {e}")
+    
+    async def _apply_stimulus_to_world(self, stimulus):
+        """Apply a single stimulus to the world."""
+        # Apply to random subset of agents based on intensity
+        num_agents_to_affect = max(1, int(len(self.world.agents) * stimulus.intensity.value))
+        affected_agents = self.world.get_random_agents(num_agents_to_affect)
+        
+        for agent in affected_agents:
+            # Apply cultural impact
+            if stimulus.cultural_impact > 0:
+                self._apply_cultural_stimulus(agent, stimulus)
+            
+            # Apply economic impact
+            if stimulus.economic_impact > 0:
+                self._apply_economic_stimulus(agent, stimulus)
+            
+            # Apply social impact
+            if stimulus.social_impact > 0:
+                self._apply_social_stimulus(agent, stimulus)
+    
+    def _apply_cultural_stimulus(self, agent, stimulus):
+        """Apply cultural stimulus to an agent."""
+        # Influence agent's cultural preferences
+        cultural_influence = stimulus.sentiment * stimulus.cultural_impact * 0.1
+        
+        # Adjust personality slightly based on stimulus
+        if stimulus.sentiment > 0:
+            agent.personality.openness += cultural_influence * 0.01
+            agent.personality.extraversion += cultural_influence * 0.01
+        else:
+            agent.personality.conscientiousness += abs(cultural_influence) * 0.01
+            agent.personality.neuroticism += abs(cultural_influence) * 0.01
+        
+        # Clamp personality values
+        agent.personality.openness = max(0.0, min(1.0, agent.personality.openness))
+        agent.personality.extraversion = max(0.0, min(1.0, agent.personality.extraversion))
+        agent.personality.conscientiousness = max(0.0, min(1.0, agent.personality.conscientiousness))
+        agent.personality.neuroticism = max(0.0, min(1.0, agent.personality.neuroticism))
+        
+        # Add stimulus keywords to agent's vocabulary
+        for keyword in stimulus.keywords[:3]:  # Add top 3 keywords
+            if keyword not in agent.language.lexicon:
+                agent.language.lexicon[keyword] = 1.0
+    
+    def _apply_economic_stimulus(self, agent, stimulus):
+        """Apply economic stimulus to an agent."""
+        economic_influence = stimulus.sentiment * stimulus.economic_impact * 0.1
+        
+        # Adjust agent's economic behavior
+        if stimulus.sentiment > 0:
+            # Positive economic news increases trading willingness
+            agent.trading_willingness += economic_influence * 0.05
+        else:
+            # Negative economic news decreases trading willingness
+            agent.trading_willingness -= abs(economic_influence) * 0.05
+        
+        # Clamp trading willingness
+        agent.trading_willingness = max(0.0, min(1.0, agent.trading_willingness))
+    
+    def _apply_social_stimulus(self, agent, stimulus):
+        """Apply social stimulus to an agent."""
+        social_influence = stimulus.sentiment * stimulus.social_impact * 0.1
+        
+        # Adjust agent's social behavior
+        if stimulus.sentiment > 0:
+            # Positive social news increases cooperation
+            agent.cooperation_tendency += social_influence * 0.05
+        else:
+            # Negative social news decreases cooperation
+            agent.cooperation_tendency -= abs(social_influence) * 0.05
+        
+        # Clamp cooperation tendency
+        agent.cooperation_tendency = max(0.0, min(1.0, agent.cooperation_tendency))
+    
+    def get_environmental_stimuli_status(self) -> Dict[str, Any]:
+        """Get status of environmental stimuli system."""
+        if not self.stimuli_manager:
+            return {"enabled": False}
+        
+        return {
+            "enabled": True,
+            "active_stimuli_count": len(self.stimuli_manager.get_active_stimuli()),
+            "cultural_divergence": self.stimuli_manager.get_cultural_divergence_summary()
+        }

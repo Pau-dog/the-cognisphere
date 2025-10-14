@@ -3,7 +3,7 @@ Memory schemas and data structures for agent memory systems.
 """
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Any, Union
+from typing import Dict, List, Optional, Any
 from enum import Enum
 import uuid
 from datetime import datetime
