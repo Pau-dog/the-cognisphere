@@ -8,7 +8,7 @@ deterministic mock responses for scalable simulation and real OpenAI API calls.
 import random
 import hashlib
 import json
-from typing import Dict, List, Optional, Any, Union
+from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
 from enum import Enum
 import asyncio
@@ -187,7 +187,7 @@ class MockLLMAdapter(LLMAdapter):
             "meaning": random.choice(["to work together", "to share wisdom", "to create something new", "to understand deeply"]),
             "concept": random.choice(["cooperation", "innovation", "wisdom", "harmony"]),
             "quality": random.choice(["unique", "powerful", "meaningful", "inspiring"]),
-            "action": random.choice(["cooperate", "innovate", "share", "understand"]),
+            "action_type": random.choice(["cooperate", "innovate", "share", "understand"]),
             "old_word": random.choice(["work", "think", "create", "help"]),
             "topic": random.choice(["our society", "cooperation", "innovation", "the future"]),
             "insight": random.choice(["we are stronger together", "sharing brings prosperity", "innovation drives progress", "understanding creates harmony"]),

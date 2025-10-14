@@ -11,10 +11,9 @@ from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, field
 from enum import Enum
 import numpy as np
-from scipy.spatial.distance import cosine
 
 from .memory import AgentMemory
-from .economy import Resource, Trade
+from .economy import Trade
 from .culture import Myth, Norm, Language
 
 
@@ -263,7 +262,8 @@ class Agent:
             return None
         
         # Get recent events from memory
-        recent_events = self.memory.get_recent_events(limit=5)
+        # Get recent events for context
+        # recent_events = self.memory.get_recent_events(limit=5)
         
         # Generate myth based on personality and events
         myth_themes = []
@@ -298,7 +298,8 @@ class Agent:
             return None
         
         # Get recent events for slang inspiration
-        recent_events = self.memory.get_recent_events(limit=3)
+        # Get recent events for context
+        # recent_events = self.memory.get_recent_events(limit=3)
         
         # Generate slang based on personality
         if self.personality.openness > 0.6:
@@ -352,7 +353,7 @@ class Agent:
     def reflect(self, tick: int):
         """Periodic reflection to consolidate memories and update satisfaction."""
         # Update satisfaction based on recent experiences
-        recent_events = self.memory.get_recent_events(limit=10)
+        # recent_events = self.memory.get_recent_events(limit=10)
         
         positive_events = sum(1 for event in recent_events 
                             if event.get("type") in ["trade_success", "alliance_formed", "myth_created"])
