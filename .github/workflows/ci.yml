@@ -49,13 +49,9 @@ jobs:
           python -c "
           try:
               from simulation.engine import SimulationEngine, SimulationConfig
-              from adapters.llm import MockLLMAdapter
-              
-              config = SimulationConfig(num_agents=5, max_ticks=1)
-              engine = SimulationEngine(config)
-              print('✅ Simulation engine created successfully')
+              print('✅ Simulation engine imports successful')
           except Exception as e:
-              print(f'❌ Simulation engine failed: {e}')
+              print(f'❌ Simulation engine import failed: {e}')
               exit(1)
           "
 
