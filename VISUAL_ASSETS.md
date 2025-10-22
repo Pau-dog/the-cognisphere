@@ -1,6 +1,6 @@
 # The Cognisphere - Project Visual Assets
 
-## 🎨 Visual Assets Created
+## Visual Assets Created
 
 ### 1. Project Banner
 A professional header showcasing The Cognisphere's core concept of emergent intelligence civilization simulation.
@@ -14,7 +14,7 @@ Live application views demonstrating the real-time visualization capabilities.
 ### 4. Feature Showcase
 Key capabilities visualization highlighting the environmental stimuli system.
 
-## 📸 Screenshots Needed
+## Screenshots Needed
 
 To create compelling visual assets, I'll need to:
 

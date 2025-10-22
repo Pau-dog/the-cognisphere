@@ -2,14 +2,19 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Globe, BookOpen, Users, TrendingUp, Clock, Star } from 'lucide-react'
 import { useSimulation } from '../state/SimulationContext'
+import mockData from '../data/mockData'
 
 const Culture: React.FC = () => {
   const { state } = useSimulation()
+  
+  // Use mock data for screenshots
+  const useMockData = false
+  const data = useMockData ? mockData : state
 
-  const myths = state.culturalData?.myths || []
-  const norms = state.culturalData?.norms || []
-  const slang = state.culturalData?.slang || []
-  const timeline = state.culturalData?.timeline || []
+  const myths = useMockData ? data.culture.myths : (state.culturalData?.myths || [])
+  const norms = useMockData ? data.culture.norms : (state.culturalData?.norms || [])
+  const slang = useMockData ? data.culture.slang : (state.culturalData?.slang || [])
+  const timeline = useMockData ? [] : (state.culturalData?.timeline || [])
 
   return (
     <div className="space-y-6">

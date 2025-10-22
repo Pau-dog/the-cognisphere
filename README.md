@@ -81,38 +81,38 @@ graph TB
 ### Main Dashboard
 The central command center showing real-time metrics and civilization overview:
 
-![Dashboard Main](docs/screenshots/dashboard-main.png)
+![Dashboard Main](docs/screenshots/dashboard-with-data.png)
 
 ### Environmental Stimuli System
 Real-world data integration showing how external events influence the digital civilization:
 
-![Environmental Stimuli](docs/screenshots/environmental-stimuli.png)
+![Environmental Stimuli](docs/screenshots/environmental-stimuli-with-data.png)
 
 ### Cultural Evolution
 Myths, norms, and language evolution tracking:
 
-![Culture Page](docs/screenshots/culture-page.png)
+![Culture Page](docs/screenshots/culture-with-data.png)
 
 ### Agent Network Visualization
 Social connections, alliances, and faction relationships:
 
-![Network Page](docs/screenshots/network-page.png)
+![Network Page](docs/screenshots/network-with-data.png)
 
 ## Key Features Showcase
 
-### 🌍 Environmental Stimuli Integration
+### Environmental Stimuli Integration
 - **Real-world Data**: RSS feeds from BBC, CNN, technology, science, and business sources
 - **Cultural Mirroring**: Agents reflect 70% of real-world events in their culture
 - **Divergence Evolution**: 1% cultural drift creates unique "future version" of civilization
 - **Sentiment Analysis**: Emotional impact processing of environmental events
 
-### 🧠 Multi-Agent Intelligence
+### Multi-Agent Intelligence
 - **Cognitive Architecture**: Each agent has unique personality traits (OCEAN model)
 - **Memory Systems**: Graph-based relationships + vector-based semantic memory
 - **Learning & Adaptation**: Agents evolve strategies based on experience
 - **Social Dynamics**: Trust, betrayal, alliance formation, and faction creation
 
-### 📊 Real-time Visualization
+### Real-time Visualization
 - **Network Graphs**: Interactive agent relationship visualization
 - **Cultural Timeline**: Myth creation and norm evolution tracking
 - **Economic Charts**: Trade activity, resource distribution, wealth inequality
