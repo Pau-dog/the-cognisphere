@@ -83,21 +83,6 @@ The central command center showing real-time metrics and civilization overview:
 
 ![Dashboard Main](docs/screenshots/dashboard-with-data.png)
 
-### Environmental Stimuli System
-Real-world data integration showing how external events influence the digital civilization:
-
-![Environmental Stimuli](docs/screenshots/environmental-stimuli-with-data.png)
-
-### Cultural Evolution
-Myths, norms, and language evolution tracking:
-
-![Culture Page](docs/screenshots/culture-with-data.png)
-
-### Agent Network Visualization
-Social connections, alliances, and faction relationships:
-
-![Network Page](docs/screenshots/network-with-data.png)
-
 ## Key Features Showcase
 
 ### Environmental Stimuli Integration
