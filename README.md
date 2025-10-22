@@ -8,6 +8,116 @@
 
 A living ecosystem of cognitive agents that evolve language, culture, alliances, and institutions through emergent dynamics.
 
+## Architecture Overview
+
+```mermaid
+graph TB
+    subgraph "Frontend Layer"
+        UI[React Dashboard]
+        VIZ[Real-time Visualization]
+        CTRL[Control Panel]
+    end
+    
+    subgraph "Backend Layer"
+        API[FastAPI Server]
+        SIM[Simulation Engine]
+        SCHED[Scheduler]
+    end
+    
+    subgraph "Agent System"
+        AGENTS[Cognitive Agents]
+        MEMORY[Memory Layer]
+        CULTURE[Cultural Evolution]
+        ECONOMY[Economic System]
+    end
+    
+    subgraph "Environmental Stimuli"
+        RSS[RSS Feeds]
+        NEWS[News APIs]
+        WEATHER[Weather Data]
+        SENTIMENT[Sentiment Analysis]
+    end
+    
+    subgraph "Data Storage"
+        GRAPH[Graph Database]
+        VECTOR[Vector Storage]
+        EVENTS[Event History]
+    end
+    
+    subgraph "Deployment"
+        PAGES[GitHub Pages]
+        RENDER[Render.com]
+        GHCR[GitHub Container Registry]
+    end
+    
+    UI --> API
+    VIZ --> API
+    CTRL --> API
+    
+    API --> SIM
+    SIM --> SCHED
+    SCHED --> AGENTS
+    
+    AGENTS --> MEMORY
+    AGENTS --> CULTURE
+    AGENTS --> ECONOMY
+    
+    MEMORY --> GRAPH
+    MEMORY --> VECTOR
+    SIM --> EVENTS
+    
+    RSS --> SENTIMENT
+    NEWS --> SENTIMENT
+    WEATHER --> SENTIMENT
+    SENTIMENT --> SIM
+    
+    API --> PAGES
+    API --> RENDER
+    SIM --> GHCR
+```
+
+## Live Dashboard Screenshots
+
+### Main Dashboard
+The central command center showing real-time metrics and civilization overview:
+
+![Dashboard Main](docs/screenshots/dashboard-main.png)
+
+### Environmental Stimuli System
+Real-world data integration showing how external events influence the digital civilization:
+
+![Environmental Stimuli](docs/screenshots/environmental-stimuli.png)
+
+### Cultural Evolution
+Myths, norms, and language evolution tracking:
+
+![Culture Page](docs/screenshots/culture-page.png)
+
+### Agent Network Visualization
+Social connections, alliances, and faction relationships:
+
+![Network Page](docs/screenshots/network-page.png)
+
+## Key Features Showcase
+
+### 🌍 Environmental Stimuli Integration
+- **Real-world Data**: RSS feeds from BBC, CNN, technology, science, and business sources
+- **Cultural Mirroring**: Agents reflect 70% of real-world events in their culture
+- **Divergence Evolution**: 1% cultural drift creates unique "future version" of civilization
+- **Sentiment Analysis**: Emotional impact processing of environmental events
+
+### 🧠 Multi-Agent Intelligence
+- **Cognitive Architecture**: Each agent has unique personality traits (OCEAN model)
+- **Memory Systems**: Graph-based relationships + vector-based semantic memory
+- **Learning & Adaptation**: Agents evolve strategies based on experience
+- **Social Dynamics**: Trust, betrayal, alliance formation, and faction creation
+
+### 📊 Real-time Visualization
+- **Network Graphs**: Interactive agent relationship visualization
+- **Cultural Timeline**: Myth creation and norm evolution tracking
+- **Economic Charts**: Trade activity, resource distribution, wealth inequality
+- **Language Drift**: Slang evolution and communication pattern analysis
+
 ## About The Cognisphere
 
 The Cognisphere is an experimental simulation platform that explores emergent intelligence through multi-agent systems. It creates a digital civilization where hundreds to thousands of cognitive agents interact, learn, and evolve complex social structures without predetermined scripts.
